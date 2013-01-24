@@ -3,7 +3,13 @@ jQuery-Pixel-Related-Object-Selection
 
 This script is not only working with images, but also working with background-images. If applied on an image it will use the src path, else it will test if data-img or background-image exists and use those instead.
 
-[View Online Demo](http://www.cw-internetdienste.de/pixelselection/)
+[View Online Demo](http://www.cw-internetdienste.de/pixelselection/)  
+
+*Possible Use Cases*  
+
+* Games
+* Complex GUIs with non rectangular buttons
+* Image Effects
 
 ##Example
 **HTML**
