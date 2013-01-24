@@ -1,3 +1,4 @@
+![Plugin Header](http://www.cw-internetdienste.de/pixelselection/header.jpg)
 jQuery-Pixel-Related-Object-Selection
 =====================================
 
