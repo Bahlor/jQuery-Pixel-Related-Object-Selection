@@ -6,7 +6,7 @@ This script is not only working with images, but also working with background-im
 [View Online Demo](http://www.cw-internetdienste.de/pixelselection/)
 
 ##Example
-*HTML*
+**HTML**
 ```html
 <section id="showcase">
   		<div id="element1" class="pixelmap unit hero"></div>
@@ -16,7 +16,7 @@ This script is not only working with images, but also working with background-im
 		</section>
 ```
 
-*JavaScript*
+**JavaScript**
 ```javascript
 $(function() {  	
 		switchBoundingBox	=	function(ev) {
@@ -64,7 +64,7 @@ $(function() {
 	});
 ```
 
-*CSS*
+**CSS**
 ```css
 #showcase {
   position: relative;
@@ -146,3 +146,48 @@ table td.desc{
 ==========================
 
 Beside the parameters that can be assigned during initialization, it is possible to assign a few parameters as data-attribute to overwrite the global options.
+
+**Argument:** 		click	  
+**Default:** 		null	  
+**Data-Attribute:** 	-	  
+**Description:** 	This is the callback for the click event. Callback has 3 callback variables <i>function(event,element,hits)</i>. Event is the click event, element is the clicked element as jquery object and hits indicated whether or not a pixel was hit.
+
+**Argument:** 		debug  
+**Default:**		false  
+**Data-Attribute:**	-  
+**Description:**	Displays the time that the calculation of the pixelmap used in the console log.
+
+**Argument:**		out  
+**Default:**		null  
+**Data-Attribute:**	-  
+**Description:**	This is the callback for the mouseout event. Callback has 3 callback variables <i>function(event,element,hits)</i>. Event is the mouseout event, element is the mouseout element as jquery object and hits indicated whether or not a pixel was hit.
+
+**Argument:**		over  
+**Default:**		null  
+**Data-Attribute:**	-  
+**Description:**	This is the callback for the mouseover event. Callback has 3 callback variables <i>function(event,element,hits)</i>. Event is the mouseover event, element is the mouseover element as jquery object and hits indicated whether or not a pixel was hit.
+
+**Argument:**		precalc  
+**Default:**		true  
+**Data-Attribute:**	data-precalc  
+**Description:**	If enabled the pixelmap will be generated before initialization. This will boost performance with many objects, but will take a few ms for to calculate. If deactivated, the script will check each pixel at runtime.
+
+**Argument:**		ready  
+**Default:**		null  
+**Data-Attribute:**	-  
+**Description:**	This is the callback for the onready event of the object. Callback has 1 callback variable <i>function(element)</i>. Element is a jquery object of the parsed html element.  
+
+**Argument:**		sublayers  
+**Default:**		false  
+**Data-Attribute:**	data-sublayers  
+**Description:**	If enabled the script will check if a object is behind a transparent area and trigger the object, if it exists  
+
+**Argument:**		tolerance  
+**Default:**		40  
+**Data-Attribute:**	data-tolerance  
+**Description:**	A value from 0-255 where 0 is transparent and 255 totally visible / filled  
+
+**Argument:**		type  
+**Default:**		img  
+**Data-Attribute:**	-  
+**Description:**	Normally this will be automatically calculated. Can either be 'img' or 'bg' for a css background-image instead of img tag.  
