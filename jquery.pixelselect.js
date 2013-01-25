@@ -181,7 +181,6 @@
 	        while(lastSub===false) {
 	        	// find elements by coordinates
 		        var el 	=	document.elementFromPoint(x,y);
-		        console.log(el);
 		        
 		        // trigger subcheck event
 		        var returned	=	$(el).triggerHandler('subcheck', [ x,y ]);
