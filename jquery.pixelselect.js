@@ -18,6 +18,7 @@
         type:		'img',
         precalc:	true,
         sublayers:	false,
+        maxsubs:	5,
         tolerance:	40,
         debug:		false
     };
@@ -59,23 +60,25 @@
 	            this.options['tolerance']	=	parseInt($(this.element).data('tolerance'));
             }
             
+            // does the current element overwrite the maximum of sublayers via data attribute?
+            if($(this.element).data('maxsubs') !== undefined && parseInt($(this.element).data('maxsubs')) >= 0) {
+	            this.options['maxsubs']	=	parseInt($(this.element).data('maxsubs'));
+            }
+            
             this.checkSrcType();
         },
         checkSrcType:	function() {
         	var el 	=	$(this.element);
 	      	// check for src
 	      	if(el.attr('src') !== undefined && el.attr('src') != '') {
-	      		console.log('image');
 		      	this.image.src 	=	el.attr('src');
 	      	} else {
 		      	// check for data-img
 		      	if(el.data('img') && el.data('img').length > 4) {
-		      		console.log('image /data');
 			      	this.image.src	=	el.data('img');
 		      	} else {
 			      	// check for background-image
 			      	if(el.css('background-image') && el.css('background-image') != '') {
-				      	console.log('bg image');
 				      	this.options['type']	=	'bg';
 				      	this.image.src	=	el.css('background-image').replace('url(','').replace(')','');
 				      	
@@ -159,35 +162,84 @@
         	if(this.options['precalc'] == true) {
         		return (this.pixelmap[x] !== undefined && this.pixelmap[x][y] !== undefined && this.pixelmap[x][y] == true) ? true:false;
         	} else {
+        		// outside of possible range? break
         		if(x === undefined || x <= 0 || y === undefined || y <= 0 || x > this.image.width || y > this.image.height) {	return false; }
+        		// get pixeldata of position
 	        	var _data	=	this.ctx.getImageData(x,y,1,1);
 	        	return (_data.data[3] > this.options['tolerance']) ? true:false;
         	}
         },
-        checkSubLayers:	function(x,y,ev,event) {
-        	// hide this element so its not been found by the elementfrompoint function
-        	$(this.element).hide();
-        	// find elements by coordinates
-	      	var elements	=	document.elementFromPoint(x,y);
-	      	// show this element again
-	      	$(this.element).show();
-	      	
-	      	if(elements != '' && typeof(elements) !== undefined) {
-	      		this.options['out'](ev,$(this.element),false);
-	      		$(elements).trigger(event, [ev.pageX,ev.pageY]);
-	      	} 
-	      	
+        checkSubLayers:		function(x,y,ev,event) {
+	        // hide this element so its not been found by the elementfrompoint function
+	        $(this.element).hide();
+	        // build array of sublayers
+	        var sublayers	=	[],
+	        	lastSub		=	false,
+	        	subs		=	0;
+	        	
+	        // loop through sublayers
+	        while(lastSub===false) {
+	        	// find elements by coordinates
+		        var el 	=	document.elementFromPoint(x,y);
+		        console.log(el);
+		        
+		        // trigger subcheck event
+		        var returned	=	$(el).triggerHandler('subcheck', [ x,y ]);
+		        
+		        // is a valid return?
+		        if(returned !== undefined) {
+		        	// not on transparent area or no more valid sublayer existent?
+			        lastSub	=	returned;
+			        // add element to sublayer array
+			        sublayers.push(el);
+		        }
+		        
+		        // prevent endloss loop, if maximum is reached, break loop
+		        if(lastSub !== true && subs >= this.options['maxsubs']) {
+			        lastSub = true;
+		        }
+		        // count loops up
+		        subs++;
+	        }
+	        // if sublayers exists, trigger event on last sublayer
+	        if(sublayers.length > 0) {
+	        	$(sublayers[sublayers.length-1]).trigger(event,[x,y]);
+	        }
+	        // return element to its normal state
+	        $(this.element).show();
+	        
+        },
+        subcheckSubLayers:	function(ev,x,y) {
+	      // check if it is a hit
+	      var hit	=	this.checkPixel(x,y);
+	      // we got a hit? search no further
+	      if(hit	==	false)	{	return false;	}
+	      
+	      // hide this element so its not been found by the elementfrompoint function
+	      $(this.element).hide();
+	      // get the element of the current cursor point
+	      // and trigger the subcheck event
+	      var elements	=	document.elementFromPoint(x,y),
+	      	 _returned	=	$(elements).triggerHandler('subcheck',[x,y]);
+	      // return element to its normal state
+	      $(this.element).show();
+	      // return the value of subcheck event
+	      return (_returned !== undefined && _returned !== false) ? true:false;
+	      
         },
         attachEvents:	function() {
 	        var el 		=	$(this.element),
 	        	_this	=	this;
 	        
 	        // attach click event
-	        el.on('click', function(ev,x,y) 		{ 	_this._click(ev,x,y) 	});
+	        el.on('click', function(ev,x,y) 		{ 	_this._click(ev,x,y); 				});
 	        
 	        // attach hover event
-	        el.on('mousemove', function(ev,x,y) 	{ 	_this._over(ev,x,y) 	});
-	        el.on('mouseout', function(ev,x,y) 		{ 	_this._out(ev,x,y) 		});
+	        el.on('mousemove', function(ev,x,y) 	{ 	_this._over(ev,x,y); 				});
+	        el.on('mouseout', function(ev,x,y) 		{ 	_this._out(ev,x,y); 				});
+	        
+	        // attach special event to check if a sublayer of a sublayer exists
+	        el.on('subcheck', function(ev,x,y) 		{	return _this.subcheckSubLayers(ev,x,y);	});
         },
         // events
         _click:			function(ev,x,y) {
