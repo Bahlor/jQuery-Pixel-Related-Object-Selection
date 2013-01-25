@@ -2,7 +2,7 @@
 jQuery-Pixel-Related-Object-Selection
 =====================================
 
-This script is not only working with images, but also working with background-images. If applied on an image it will use the src path, else it will test if data-img or background-image exists and use those instead.
+This script is not only working with images, but also with background-images. If applied to an image it will use the src path, else it will test if data-img or background-image exists and use those instead.
 
 [View Online Demo](http://www.cw-internetdienste.de/pixelselection/)  
 
@@ -152,12 +152,12 @@ table td.desc{
 ##Configuration parameters
 ==========================
 
-Beside the parameters that can be assigned during initialization, it is possible to assign a few parameters as data-attribute to overwrite the global options.
+Besides the parameters that can be assigned during initialization, it is possible to assign a few parameters as data-attributes to overwrite the global options.
 
 **Argument:** 		click	  
 **Default:** 		null	  
 **Data-Attribute:** 	-	  
-**Description:** 	This is the callback for the click event. Callback has 3 callback variables <i>function(event,element,hits)</i>. Event is the click event, element is the clicked element as jquery object and hits indicated whether or not a pixel was hit.
+**Description:** 	This is the callback for the click event. The callback has 3 callback variables <i>function(event,element,hits)</i>. *Event* is the click event, *element* is the clicked element as jquery object, and *hits* indicates whether or not a pixel was hit.
 
 **Argument:** 		debug  
 **Default:**		false  
@@ -167,32 +167,32 @@ Beside the parameters that can be assigned during initialization, it is possible
 **Argument:**		maxsubs  
 **Default:**		5  
 **Data-Attribute:**	data-maxsubs  
-**Description:**	This option prevents endless loops, defines how deep the script checks for sublayers  
+**Description:**	This option prevents endless loops, it defines how deep the script checks for sublayers  
 
 **Argument:**		out  
 **Default:**		null  
 **Data-Attribute:**	-  
-**Description:**	This is the callback for the mouseout event. Callback has 3 callback variables <i>function(event,element,hits)</i>. Event is the mouseout event, element is the mouseout element as jquery object and hits indicated whether or not a pixel was hit.
+**Description:**	This is the callback for the mouseout event. The callback has 3 callback variables <i>function(event,element,hits)</i>. *Event* is the mouseout event, *element* is the mouseout element as a jquery object, and *hits* indicates whether or not a pixel was hit.
 
 **Argument:**		over  
 **Default:**		null  
 **Data-Attribute:**	-  
-**Description:**	This is the callback for the mouseover event. Callback has 3 callback variables <i>function(event,element,hits)</i>. Event is the mouseover event, element is the mouseover element as jquery object and hits indicated whether or not a pixel was hit.
+**Description:**	This is the callback for the mouseover event. The callback has 3 callback variables <i>function(event,element,hits)</i>. *Event* is the mouseover event, *element* is the mouseover element as a jquery object, and *hits* indicates whether or not a pixel was hit.
 
 **Argument:**		precalc  
 **Default:**		true  
 **Data-Attribute:**	data-precalc  
-**Description:**	If enabled the pixelmap will be generated before initialization. This will boost performance with many objects, but will take a few ms for to calculate. If deactivated, the script will check each pixel at runtime.
+**Description:**	If enabled the pixelmap will be generated before initialization. This will boost performance with many objects, but will take a few ms to calculate. If deactivated, the script will check each pixel at runtime.
 
 **Argument:**		ready  
 **Default:**		null  
 **Data-Attribute:**	-  
-**Description:**	This is the callback for the onready event of the object. Callback has 1 callback variable <i>function(element)</i>. Element is a jquery object of the parsed html element.  
+**Description:**	This is the callback for the onready event of the object. The callback has 1 callback variable <i>function(element)</i>. *Element* is a jquery object of the parsed html element.  
 
 **Argument:**		sublayers  
 **Default:**		false  
 **Data-Attribute:**	data-sublayers  
-**Description:**	If enabled the script will check if a object is behind a transparent area and trigger the object, if it exists  
+**Description:**	If enabled the script will check if a object is behind a transparent area and trigger the object, if it exists.  
 
 **Argument:**		tolerance  
 **Default:**		40  
