@@ -164,6 +164,11 @@ Beside the parameters that can be assigned during initialization, it is possible
 **Data-Attribute:**	-  
 **Description:**	Displays the time that the calculation of the pixelmap used in the console log.
 
+**Argument:**		maxsubs  
+**Default:**		5  
+**Data-Attribute:**	data-maxsubs  
+**Description:**	This option prevents endless loops, defines how deep the script checks for sublayers  
+
 **Argument:**		out  
 **Default:**		null  
 **Data-Attribute:**	-  
