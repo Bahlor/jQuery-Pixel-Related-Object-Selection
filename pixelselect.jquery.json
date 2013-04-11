@@ -9,10 +9,10 @@
         "pixel",
         "selection"
     ],
-    "version": "0.5.3",
+    "version": "0.5.4",
     "author": {
         "name": "CW-Internetdienste",
-        "url": "http://www.cw-internetdienste.de/pixelselect/"
+        "url": "http://www.cw-internetdienste.de/pixelselection/"
     },
     "maintainers": [
         {
@@ -28,7 +28,7 @@
         }
     ],
     "bugs": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection/issues",
-    "homepage": "http://www.cw-internetdienste.de/pixelselect/",
+    "homepage": "http://www.cw-internetdienste.de/pixelselection/",
     "docs": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection",
     "download": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection",
     "dependencies": {
