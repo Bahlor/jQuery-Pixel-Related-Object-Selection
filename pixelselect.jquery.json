@@ -5,8 +5,9 @@
     "keywords": [
         "transparent",
         "images",
-        "transparent area",
-        "pixel selection"
+        "area",
+        "pixel",
+        "selection"
     ],
     "version": "0.5.1",
     "author": {
