@@ -1,0 +1,36 @@
+{
+    "name": "pixelselect",
+    "title": "jQuery Pixel Select",
+    "description": "jQuery plugin to allow selection of non-transparent areas of images only or just to check for transparent / non-transparent areas. Also allows to select elements behind transparent areas of overlapping images.",
+    "keywords": [
+        "transparent",
+        "images",
+        "transparent area",
+        "pixel selection"
+    ],
+    "version": "0.5.1",
+    "author": {
+        "name": "CW-Internetdienste",
+        "url": "https://www.cw-internetdienste.de/pixelselect/"
+    },
+    "maintainers": [
+        {
+            "name": "Christian Weber",
+            "email": "christian@cw-internetdienste.de",
+            "url": "http://www.cw-internetdienste.de"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection/issues",
+    "homepage": "http://www.cw-internetdienste.de/pixelselect/",
+    "docs": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection",
+    "download": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
