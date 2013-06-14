@@ -1,10 +1,10 @@
-![Plugin Header](http://www.cw-internetdienste.de/pixelselection/header.jpg)
+![Plugin Header](http://www.cwdev.de/pixelselect/header.jpg)
 jQuery-Pixel-Related-Object-Selection
 =====================================
 
 This script is not only working with images, but also with background-images. If applied to an image it will use the src path, else it will test if data-img or background-image exists and use those instead.
 
-[View Online Demo](http://www.cw-internetdienste.de/pixelselection/)  
+[View Online Demo](http://www.cwdev.de/pixelselect/)  
 
 *Possible Use Cases*  
 
