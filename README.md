@@ -1,4 +1,5 @@
 ![Plugin Header](http://www.cwdev.de/pixelselect/header.png)
+![2nd Header](http://www.cwdev.de/pixelselect/pp.jpg)
 jQuery-Pixel-Related-Object-Selection
 =====================================
 
