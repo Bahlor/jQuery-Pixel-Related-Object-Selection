@@ -68,7 +68,7 @@ $(function() {
 			console.log('ready callback');
 		};
 				
-		$('.pixelmap').pixelselect({
+		$('.pixelmap').Pixelselect({
 			over:		elemHovered,
 			out:		elemOut,
 			click:		elemClicked,

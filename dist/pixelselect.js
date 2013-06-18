@@ -1,10 +1,13 @@
 /*! jQuery Pixel Select - v0.5.5 - 2013-06-18
 * https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection
 * Copyright (c) 2013 Christian Weber; Licensed MIT */
+/*! jQuery Pixel Select - v0.5.5 - 2013-06-18
+* https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection
+* Copyright (c) 2013 Christian Weber; Licensed MIT */
+/*jshint devel:true */
 ;(function ($, window, document, undefined) {
 	"use strict";
 
-	var console	=	{};
     // Default
     var pluginName = "Pixelselect";
     var defaults = {
@@ -176,7 +179,6 @@
 			var sublayers	=	[],
 				lastSub		=	false,
 				subs		=	0;
-
 			// loop through sublayers
 			while(lastSub===false) {
 				// find elements by coordinates
@@ -204,6 +206,7 @@
 			if(sublayers.length > 0) {
 				$(sublayers[sublayers.length-1]).trigger(event,[x,y]);
 			}
+
 			// return element to its normal state
 			$(this.element).show();
 		},
@@ -241,8 +244,8 @@
 		// events
 		_click:			function(ev,_x,_y) {
 			console.log(this.image.src+' was clicked',ev);
-			var x	=	(x===undefined) ? ev.pageX:_x,
-				y	=	(y===undefined) ? ev.pageY:_y,
+			var x	=	(_x===undefined) ? ev.pageX:_x,
+				y	=	(_y===undefined) ? ev.pageY:_y,
 				hit = this.checkPixel(x,y,ev);
 			// if transparent pixel and sublayers is active, 
 			// check whether or not objects are behind this object
@@ -259,8 +262,8 @@
 			ev.preventDefault();
 		},
 		_over:			function(ev,_x,_y) {
-			var x	=	(x===undefined) ? ev.pageX:_x,
-				y	=	(y===undefined) ? ev.pageY:_y,
+			var x	=	(_x===undefined) ? ev.pageX:_x,
+				y	=	(_y===undefined) ? ev.pageY:_y,
 				hit = this.checkPixel(x,y,ev);
 			// if transparent pixel and sublayers is active, 
 			// check whether or not objects are behind this object
@@ -277,8 +280,8 @@
 			ev.preventDefault();
 		},
 		_out:			function(ev,_x,_y) {
-			var x	=	(x===undefined) ? ev.pageX:_x,
-				y	=	(y===undefined) ? ev.pageY:_y,
+			var x	=	(_x===undefined) ? ev.pageX:_x,
+				y	=	(_y===undefined) ? ev.pageY:_y,
 				hit	=	this.checkPixel(x,y,ev);
 
 			if(hit!==true && this.options['sublayers']	===	true) {
