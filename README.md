@@ -1,6 +1,6 @@
 ![Plugin Header](http://www.cwdev.de/pixelselect/header.png)
 ![2nd Header](http://www.cwdev.de/pixelselect/pp.jpg)
-jQuery-Pixel-Related-Object-Selection
+# jQuery-Pixel-Related-Object-Selection
 =====================================
 
 This script is not only working with images, but also with background-images. If applied to an image it will use the src path, else it will test if data-img or background-image exists and use those instead.
@@ -13,7 +13,15 @@ This script is not only working with images, but also with background-images. If
 * Complex GUIs with non rectangular buttons
 * Image Effects
 
-##Example
+
+## Getting Started
+Download the [production version][min] or the [development version][max].
+
+[min]: https://raw.github.com/Bahlor/jQuery-Pixel-Related-Object-Selection/master/dist/pixelselect.min.js
+[max]: https://raw.github.com/Bahlor/jQuery-Pixel-Related-Object-Selection/master/dist/pixelselect.js
+
+In your web page:
+
 **HTML**
 ```html
 <section id="showcase">
@@ -150,9 +158,7 @@ table td.desc{
 }
 ```
 
-##Configuration parameters
-==========================
-
+## Configuration Parameters
 Besides the parameters that can be assigned during initialization, it is possible to assign a few parameters as data-attributes to overwrite the global options.
 
 **Argument:** 		click	  
@@ -204,3 +210,10 @@ Besides the parameters that can be assigned during initialization, it is possibl
 **Default:**		img  
 **Data-Attribute:**	-  
 **Description:**	Normally this will be automatically calculated. Can either be 'img' or 'bg' for a css background-image instead of img tag.  
+
+
+## Examples
+_(Coming soon)_
+
+## Release History
+ * 2013-06-18   v0.5.5   Minor bugfixes and added grunt version. Also checked via jshint. Prepared basic qUnit usage.

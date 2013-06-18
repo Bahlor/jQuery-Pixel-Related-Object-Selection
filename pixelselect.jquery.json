@@ -1,37 +1,40 @@
 {
-    "name": "pixelselect",
-    "title": "jQuery Pixel Select",
-    "description": "jQuery plugin to allow selection of non-transparent areas of images only or just to check for transparent / non-transparent areas. Also allows to select elements behind transparent areas of overlapping images.",
-    "keywords": [
+  "name": "pixelselect",
+  "title": "jQuery Pixel Select",
+  "description": "jQuery plugin to allow selection of non-transparent areas of images only or just to check for transparent / non-transparent areas. Also allows to select elements behind transparent areas of overlapping images.",
+  "version": "0.5.5",
+  "keywords": [
         "transparent",
         "images",
         "area",
         "pixel",
         "selection"
     ],
-    "version": "0.5.4",
-    "author": {
-        "name": "CW-Internetdienste",
-        "url": "http://www.cw-internetdienste.de/pixelselection/"
-    },
-    "maintainers": [
+  "homepage": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection",
+  "author": {
+    "name": "Christian Weber",
+    "email": "christian@cw-internetdienste.de",
+    "url": "http://www.cw-internetdienste.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection.git"
+  },
+  "bugs": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection/issues",
+  "maintainers": [
         {
             "name": "Christian Weber",
             "email": "christian@cw-internetdienste.de",
             "url": "http://www.cw-internetdienste.de"
         }
     ],
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
-        }
-    ],
-    "bugs": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection/issues",
-    "homepage": "http://www.cw-internetdienste.de/pixelselection/",
-    "docs": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection",
-    "download": "https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection",
-    "dependencies": {
-        "jquery": ">=1.5"
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
     }
+  ],
+  "dependencies": {
+    "jquery": ">=1.5"
+  }
 }
