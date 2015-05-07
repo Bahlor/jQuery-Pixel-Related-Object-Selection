@@ -1,6 +1,6 @@
-/*! jQuery Pixel Select - v0.5.5 - 2013-06-18
+/*! jQuery Pixel Select - v0.5.6 - 2015-05-07
 * https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection
-* Copyright (c) 2013 Christian Weber; Licensed MIT */
+* Copyright (c) 2015 Christian Weber; Licensed MIT */
 /*! jQuery Pixel Select - v0.5.5 - 2013-06-18
 * https://github.com/Bahlor/jQuery-Pixel-Related-Object-Selection
 * Copyright (c) 2013 Christian Weber; Licensed MIT */
@@ -87,7 +87,17 @@
 			}
 			// launch pixel map generation after image has been loaded
 			if(this.image.src !== '') {
-				this.image.onload	=	this.generatePixelMap();
+				var self = this;
+				this.image.onload = function() {
+					// prevent generation of pixels if image is not yet loaded
+					// occured a few times even with onload function of image
+					if(!self.image.complete) {
+						var _this	=	self;
+						setTimeout(function() { _this.generatePixelMap(); },500);
+						return;
+					}
+					self.generatePixelMap();
+				}
 			}
 		},
 		getCanvasRenderer:function() {
@@ -111,14 +121,6 @@
 			return	ctx;
 		},
 		generatePixelMap: function () {
-			// prevent generating of pixels if image is not yet loaded
-			// occured a few times even with onload function of Image
-			
-			if(!this.image.complete) {
-				var _this	=	this;
-				setTimeout(function() { _this.generatePixelMap(); },500);
-				return;
-			}
 			// fetch the canvas renderer
 			this.ctx	=	this.getCanvasRenderer();
 
@@ -158,8 +160,8 @@
 			var pos	=	$(this.element).offset();
 
 			// get the position of mouse on the current element
-			x	=	x-pos.left,
-			y	=	y-pos.top;
+			x	=	~~(x-pos.left),
+			y	=	~~(y-pos.top);
 
 			// if this element is using precalc, get data from array, else use canvas
 			if(this.options['precalc'] === true) {
