@@ -216,4 +216,5 @@ Besides the parameters that can be assigned during initialization, it is possibl
 _(Coming soon)_
 
 ## Release History
+ * 2015-05-07	v0.5.6	 Major bug fixed that prevented checking of transparent pixels at the correct coordinates
  * 2013-06-18   v0.5.5   Minor bugfixes and added grunt version. Also checked via jshint. Prepared basic qUnit usage.

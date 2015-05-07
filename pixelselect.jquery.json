@@ -2,7 +2,7 @@
   "name": "pixelselect",
   "title": "jQuery Pixel Select",
   "description": "jQuery plugin to allow selection of non-transparent areas of images only or just to check for transparent / non-transparent areas. Also allows to select elements behind transparent areas of overlapping images.",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "keywords": [
         "transparent",
         "images",
