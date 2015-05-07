@@ -24,60 +24,62 @@ In your web page:
 
 **HTML**
 ```html
-<section id="showcase">
-  		<div id="element1" class="pixelmap unit hero"></div>
-			<img src="fountain.png" id="element2" width="74" height="116" alt="fountain" class="pixelmap" />
-			<div id="element3" class="pixelmap unit monster"></div>
-			<img src="house.png" id="element4" width="216" height="287" alt="house" class="pixelmap" data-precalc="false" />
-		</section>
+    <section id="showcase">
+        <div id="element1" class="pixelmap unit hero"></div>
+        <img src="fountain.png" id="element2" width="74" height="116" alt="fountain" class="pixelmap" />
+        <div id="element3" class="pixelmap unit monster"></div>
+        <img src="house.png" id="element4" width="216" height="287" alt="house" class="pixelmap" data-precalc="false" />
+    </section>
 ```
 
 **JavaScript**
 ```javascript
-$(function() {  	
-		switchBoundingBox	=	function(ev) {
-			$('.pixelmap').toggleClass('bounding-box');
-			ev.preventDefault();
-		};
-		
-		elemHovered			=	function(ev,elem,hit) {
-			if(hit==true) {
-	        	if(!elem.hasClass('hover')) {
-		        	elem.addClass('hover');
-	        	}
-        	} else {
-	        	elem.removeClass('hover');
-        	}
+$(function() {        
+    switchBoundingBox    =    function(ev) {
+        $('.pixelmap,.button').toggleClass('bounding-box');
+        ev.preventDefault();
+    };
+    
+    elemHovered            =    function(ev,elem,hit) {
+        if(hit==true) {
+     if(!elem.hasClass('hover')) {
+         elem.addClass('hover');
+     }
+ } else {
+     elem.removeClass('hover');
+ }
 
-			ev.preventDefault();	
-		};
-		
-		elemOut				=	function(ev,elem,hit) {
-			console.log('out callback');
-			elem.removeClass('hover');	
-		};
-		
-		elemClicked			=	function(ev,elem,hit) {
-			if(hit===true) {
-				elem.toggleClass('active');
-			}
-			ev.preventDefault();	
-		};
-		
-		elemReady			=	function(el) {
-			console.log('ready callback');
-		};
-				
-		$('.pixelmap').Pixelselect({
-			over:		elemHovered,
-			out:		elemOut,
-			click:		elemClicked,
-			ready:		elemReady,
-			sublayers:	true,
-			debug: 		false
-		});
-		
-	});
+        ev.preventDefault();    
+    };
+    
+    elemOut                =    function(ev,elem,hit) {
+        console.log('out callback');
+        elem.removeClass('hover');    
+    };
+    
+    elemClicked            =    function(ev,elem,hit) {
+        if(hit===true) {
+            elem.toggleClass('active');
+        }
+        ev.preventDefault();    
+    };
+    
+    elemReady            =    function(el) {
+        console.log('ready callback');
+    };
+    
+    $('#bounding-box').change(switchBoundingBox);
+    
+    $('.pixelmap,.button').Pixelselect({
+        over:        elemHovered,
+        out:        elemOut,
+        click:        elemClicked,
+        ready:        elemReady,
+        sublayers:    true,
+        debug:         false
+    });
+    
+});
 ```
 
 **CSS**
@@ -216,5 +218,5 @@ Besides the parameters that can be assigned during initialization, it is possibl
 _(Coming soon)_
 
 ## Release History
- * 2015-05-07	v0.5.6	 Major bug fixed that prevented checking of transparent pixels at the correct coordinates
+ * 2015-05-07   v0.5.6   Major bug fixed that prevented checking of transparent pixels at the correct coordinates
  * 2013-06-18   v0.5.5   Minor bugfixes and added grunt version. Also checked via jshint. Prepared basic qUnit usage.
