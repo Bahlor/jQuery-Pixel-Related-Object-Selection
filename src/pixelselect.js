@@ -109,7 +109,8 @@
 			// get rendering object for canvas
 			var ctx			=	canvas.getContext('2d');
 			// draw image on canvas
-			ctx.drawImage(this.image,0,0);
+			ctx.drawImage(this.image,0,0, canvas.width, canvas.height, 0, 0, 
+                    this.element.width, this.element.height);
 			// if debug is activated attach canvas to body
 			if(this.options['debug'] === true) {
 				$(canvas).appendTo('body');
